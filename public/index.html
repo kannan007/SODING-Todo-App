@@ -1,0 +1,65 @@
+<html ng-app="TodoApp">
+	<title>Welcome to Todo App</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+	<script src="javascripts/angular.min.js"></script>
+	<script src="javascripts/jquery.min.js"></script>
+	<script src="javascripts/bootstrap.min.js"></script>
+	<script src="javascripts/main.js"></script>
+	<body ng-controller="MainController">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 add-task">
+					<h2>Add a Task List</h2>
+					<form class="task-form" name="TaskForm" novalidate>
+						<div class="form-group">
+							<label>Enter your task name</label>
+						    <input type="text" ng-model="TaskName" class="form-control" name="taskname" required>
+						    <span ng-show="TaskForm.taskname.$error.required && !TaskForm.taskname.$pristine" class="help-block">Name is required</span>
+					  	</div>
+					  	<div class="form-group">
+					  		<label>Add a description to your task</label>
+						    <textarea ng-model="TaskDescription" class="form-control" rows="3" name="taskdescription" required></textarea>
+						    <span ng-show="TaskForm.taskdescription.$error.required && !TaskForm.taskdescription.$pristine" class="help-block">
+						    	Description is required
+						    </span>
+					  	</div>
+					  	<button type="submit" ng-click="AddTask();" class="btn btn-default" ng-disabled="TaskForm.$invalid">Add Task</button>
+					</form>
+				</div>
+				<div class="col-md-12 list-items-section">
+					<h2>Your Task Lists</h2>
+					<table class="list-items-table table">
+						<tr>
+							<th>Id</th>
+							<th>Name</th>
+							<th>Description</th>
+							<th>Created At</th>
+							<th>Updated At</th>
+						</tr>
+						<tr ng-show="TaskListItems.length===0"><td><h1>Lists are empty at the moment</h1></td></tr>
+						<tr class="list-items" ng-repeat="x in TaskListItems">
+						  	<td class="view" id={{x._id}}>{{x.id}}</td>
+						  	<td class="view" id={{x._id}}>{{x.name}}</td>
+						  	<td class="view" id={{x._id}}>{{x.description}}</td>
+						  	<td class="view" id={{x._id}}>{{x.createdAt | date : "dd.MM.y h:mm a"}}</td>
+						  	<td class="view" id={{x._id}}>{{x.updatedAt | date : "dd.MM.y h:mm a"}}</td>
+						  	<td class="view"><button id={{x._id}} data-ng-click="EditTask($event,$index)" class="btn btn-info Complete">Edit</button></td>
+							<td class="view">
+								<button id={{x._id}} data-ng-click="DeleteTask($event,$index)" class="btn btn-info Complete">Delete</button>
+							</td>
+							<td class="edit"><input type="text" ng-model="x.name" class="form-control" name="taskname" required></td>
+							<td class="edit"><textarea ng-model="x.description" class="form-control" rows="3" name="taskdescription" required></textarea></td>
+							<td class="edit">
+							  	<button type="button" id={{x._id}} ng-click="UpdateTask($event,x);" class="btn btn-default">Update Task</button>
+							  	<button type="button" ng-click="CancelEdit($event);" class="btn btn-default">Cancel</button>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

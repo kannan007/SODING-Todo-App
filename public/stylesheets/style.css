@@ -1,0 +1,13 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+body .container .list-items-section .list-items-table .list-items .edit {
+  display: none;
+}
+body .container .list-items-section .list-items-table .editing .edit {
+  display: block;
+}
+body .container .list-items-section .list-items-table .editing .view {
+  display: none;
+}
