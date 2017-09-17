@@ -37,23 +37,23 @@
 							<th>Name</th>
 							<th>Description</th>
 							<th>Created At</th>
-							<th>Updated At</th>
+							<th>Last Updated At</th>
 						</tr>
 						<tr ng-show="TaskListItems.length===0"><td><h1>Lists are empty at the moment</h1></td></tr>
 						<tr class="list-items" ng-repeat="x in TaskListItems">
-						  	<td class="view" id={{x._id}}>{{x.id}}</td>
-						  	<td class="view" id={{x._id}}>{{x.name}}</td>
-						  	<td class="view" id={{x._id}}>{{x.description}}</td>
-						  	<td class="view" id={{x._id}}>{{x.createdAt | date : "dd.MM.y h:mm a"}}</td>
-						  	<td class="view" id={{x._id}}>{{x.updatedAt | date : "dd.MM.y h:mm a"}}</td>
-						  	<td class="view"><button id={{x._id}} data-ng-click="EditTask($event,$index)" class="btn btn-info Complete">Edit</button></td>
+						  	<td class="view">{{x.id}}</td>
+						  	<td class="view">{{x.name}}</td>
+						  	<td class="view">{{x.description}}</td>
+						  	<td class="view">{{x.createdAt | date : "dd/MM/y h:mm a"}}</td>
+						  	<td class="view">{{x.updatedAt | date : "dd/MM/y h:mm a"}}</td>
+						  	<td class="view"><button id={{x.id}} data-ng-click="EditTask($event,$index)" class="btn btn-info Complete">Edit</button></td>
 							<td class="view">
-								<button id={{x._id}} data-ng-click="DeleteTask($event,$index)" class="btn btn-info Complete">Delete</button>
+								<button id={{x.id}} data-ng-click="DeleteTask($event,$index)" class="btn btn-danger Complete">Delete</button>
 							</td>
 							<td class="edit"><input type="text" ng-model="x.name" class="form-control" name="taskname" required></td>
 							<td class="edit"><textarea ng-model="x.description" class="form-control" rows="3" name="taskdescription" required></textarea></td>
 							<td class="edit">
-							  	<button type="button" id={{x._id}} ng-click="UpdateTask($event,x);" class="btn btn-default">Update Task</button>
+							  	<button type="button" id={{x.id}} ng-click="UpdateTask($event,$index,x);" class="btn btn-default">Update Task</button>
 							  	<button type="button" ng-click="CancelEdit($event);" class="btn btn-default">Cancel</button>
 							</td>
 						</tr>

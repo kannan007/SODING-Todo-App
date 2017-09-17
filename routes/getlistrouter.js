@@ -22,18 +22,19 @@ GETLISTrouter.route('/')
 });
 GETLISTrouter.route('/:listId')
 .get(function(req,res,next) {
-    LIST.findById(req.params.listId,function(err,item) {
+    LIST.find({"id":req.params.listId},function(err,item) {
+        if (err) throw err;
         res.send(item);
     })
 })
 .delete(function(req,res,next) {
-    LIST.findByIdAndRemove(req.params.listId,function(err,item) {
+    LIST.findOneAndRemove(req.params.listId,function(err,item) {
         if (err) throw err;
         res.end("Deleted Successfully");
     })
 })
 .put(function(req,res,next) {
-    LIST.findByIdAndUpdate(req.params.listId, { $set: req.body}, {new:true}, function(err,item) {
+    LIST.findOneAndUpdate({"id":req.params.listId}, { $set: req.body}, {new:true}, function(err,item) {
         if(err) throw err;
         console.log(item);
         res.send(item);
