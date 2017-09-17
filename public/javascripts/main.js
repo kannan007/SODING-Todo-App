@@ -42,7 +42,6 @@
 		};
 		$scope.GetTasks=function() {
 			$http.get(" http://localhost:3000/getlists").then(function(response) {
-				console.log(response);
 				$scope.TaskListItems=response.data;
 			},function(response) {
 	        	//Second function handles error
