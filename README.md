@@ -1,4 +1,5 @@
 # SODING-Todo-App
+  I have used MEAN(MongoDB,ExpressJS,AngularJS,NodeJS) Stack and Bootstrap Framework(for styling) to build this Application 
 
 ## How to Install and Run the application
   * Install NodeJS into your computer if you haven't installed already.
