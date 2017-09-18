@@ -8,7 +8,7 @@
   * Open the Download folder.
   * Open the Terminal and set path to the download folder and type npm install. Wait for few minutes so that installation will be done.
   * Once all the installations are done type npm run in your terminal. The application will start Running.
-  * Open your browser and type the URL [localhost](localhost:3000)
+  * Open your browser and type the URL [localhost:3000](localhost:3000)
 
 ## How it Works
   * An user will be provided with two fields one to enter his task name and an another to enter his task Description.
