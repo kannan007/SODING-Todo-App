@@ -1,5 +1,14 @@
 # SODING-Todo-App
 
+## How to Install and Run the application
+  * Install NodeJS into your computer if you haven't installed already.
+  * Install MongoDB into your computer if you haven't installed already.
+  * Now Start your MongoDB server with terminal from where you have installed by typing **mongod** some might have setup a path like me **mongod --dbpath==yourlocalpath**
+  * Clone this Repository or Download into your system.
+  * Open the Download folder.
+  * Open the Terminal and set path to the download folder and type npm install. Wait for few minutes so that installation will be done.
+  * Once all the installations are done type npm run in your terminal. The application will start Running.
+  * Open your browser and type the URL [localhost](localhost:3000)
 
 ## How it Works
   * An user will be provided with two fields one to enter his task name and an another to enter his task Description.
